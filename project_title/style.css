@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+}
+
+input {
+  width: 60%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+button {
+  padding: 10px 15px;
+  margin-left: 5px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+#gallery {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#gallery img {
+  width: 250px;
+  border-radius: 10px;
+}
