@@ -8,10 +8,17 @@ make an interesting website that can ai generate images
 - [x] input area for prompts
 - [x] add random prompt button
 - [x] generate image button
-- [ ] create css style
+- [x] create css style
 - [ ] creat user interface
-- [ ] add random prompt function
-- [ ] connect js logic and user interface (buttons)
+- [x] add random prompt function
+- [x] connect js logic and user interface (buttons)
 
 ## tasks (backend)
-- [ ] make task list
+- [ ] sign up to cloudflare
+- [ ] create a worker
+- [ ] deploy worker
+- [ ] write code for worker
+- [ ] ensure worker can connect to frontend
+- [ ] placeholder image for teseting
+- [ ] document errors/solutions
+
