@@ -1,8 +1,8 @@
-const promptInput = document.getElementById("promptInput");
+const promptInput = document.getElementById("prompt_input");
 const gallery = document.getElementById("gallery");
 
 // Random prompt
-document.getElementById("randomBtn").onclick = () => {
+document.getElementById("random_button").onclick = () => {
   const random =
     prompts[Math.floor(Math.random() * prompts.length)];
 
@@ -10,17 +10,20 @@ document.getElementById("randomBtn").onclick = () => {
 };
 
 // Generate image
-document.getElementById("generateBtn").onclick = async () => {
+document.getElementById("generate_button").onclick = async () => {
   const prompt = promptInput.value;
 
   // call your backend (Cloudflare Worker)
-  const res = await fetch("image-generator.heheheha9926.workers.dev", {
+const res = await fetch(
+  "https://image-generator.heheheha9926.workers.dev/generate",
+  {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({ prompt })
-  });
+  }
+);
 
   const data = await res.json();
 
