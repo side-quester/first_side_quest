@@ -1,0 +1,5 @@
+name = "image-generator"
+main = "backend.js"
+compatibility_date = "2025-06-01"
+[ai]
+binding = "AI"

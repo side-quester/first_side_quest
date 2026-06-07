@@ -1,12 +1,11 @@
 export default {
-  async fetch(request) {
+  async fetch(request, env) {
     const corsHeaders = {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET,POST,OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type",
     };
 
-    // Handle preflight request (IMPORTANT)
     if (request.method === "OPTIONS") {
       return new Response(null, {
         headers: corsHeaders
@@ -16,14 +15,21 @@ export default {
     const url = new URL(request.url);
 
     if (url.pathname === "/generate") {
-      return Response.json(
+      const { prompt } = await request.json();
+
+      const image = await env.AI.run(
+        "@cf/black-forest-labs/flux-1-schnell",
         {
-          imageUrl: "https://picsum.photos/512"
-        },
-        {
-          headers: corsHeaders
+          prompt
         }
       );
+
+      return new Response(image, {
+        headers: {
+          ...corsHeaders,
+          "Content-Type": "image/jpeg"
+        }
+      });
     }
 
     return new Response("Not found", {
